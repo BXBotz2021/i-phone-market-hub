@@ -76,7 +76,7 @@ export default function Index() {
       <main className="flex-1">
         {/* Hero Section */}
         <section
-  className="py-16 md:py-24"
+  className="relative bg-iphone-light py-16 md:py-24"
   style={{
     backgroundImage: "url('/hero-bg.jpg')",
     backgroundSize: "cover",
