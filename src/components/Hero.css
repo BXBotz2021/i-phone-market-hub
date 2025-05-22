@@ -1,0 +1,12 @@
+.hero {
+  height: 100vh;
+  background-image: url('/hero-bg.jpg'); /* put your image in public folder */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
