@@ -119,7 +119,7 @@ export default function Index() {
                     <SelectValue placeholder="Filter by condition" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">All Conditions</SelectItem>
+                    <SelectItem value="all">All Conditions</SelectItem>
                     <SelectItem value="New">New</SelectItem>
                     <SelectItem value="Excellent">Excellent</SelectItem>
                     <SelectItem value="Good">Good</SelectItem>
