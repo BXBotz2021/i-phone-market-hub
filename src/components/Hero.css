@@ -1,5 +1,5 @@
 .hero {
-  height: 150vh;
+  height: 100vh;
   background-image: url('/hero-bg.jpg'); /* put your image in public folder */
   background-size: cover;
   background-position: center;
