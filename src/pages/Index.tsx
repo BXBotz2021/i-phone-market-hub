@@ -75,27 +75,40 @@ export default function Index() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-iphone-light py-16 md:py-24">
-          <div className="container">
-            <div className="max-w-2xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Premium Used iPhones at Affordable Prices</h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                Certified pre-owned iPhones with warranty and exceptional quality.
-              </p>
-              <Button 
-                className="bg-iphone-blue hover:bg-iphone-blue/90 px-8 py-6 text-lg"
-                onClick={() => {
-                  const element = document.getElementById('all-products');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                Shop Now
-              </Button>
-            </div>
-          </div>
-        </section>
+        <section
+  className="relative bg-iphone-light py-16 md:py-24"
+  style={{
+    backgroundImage: "url('/hero-bg.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
+
+  <div className="container relative z-10">
+    <div className="max-w-2xl mx-auto text-center">
+      <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">
+        Premium Used iPhones at Affordable Prices
+      </h1>
+      <p className="text-lg md:text-xl text-white mb-8">
+        Certified pre-owned iPhones with warranty and exceptional quality.
+      </p>
+      <Button 
+        className="bg-iphone-blue hover:bg-iphone-blue/90 px-8 py-6 text-lg"
+        onClick={() => {
+          const element = document.getElementById('all-products');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+      >
+        Shop Now
+      </Button>
+    </div>
+  </div>
+</section>
         
         {/* Featured Products */}
         {featuredProducts.length > 0 && (
