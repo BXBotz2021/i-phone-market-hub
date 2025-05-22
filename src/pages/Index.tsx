@@ -186,10 +186,10 @@ export default function Index() {
             <div>
               <h3 className="text-lg font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="/" className="text-gray-300 hover:text-white">Home</a></li>
-                <li><a href="/#featured" className="text-gray-300 hover:text-white">Featured</a></li>
-                <li><a href="/#all-products" className="text-gray-300 hover:text-white">All Products</a></li>
-                <li><a href="/admin" className="text-gray-300 hover:text-white">Admin</a></li>
+                <li><a href="/" className="text-gray-300 hover:text-white">HOME</a></li>
+                <li><a href="/#featured" className="text-gray-300 hover:text-white">FEATURED</a></li>
+                <li><a href="/#all-products" className="text-gray-300 hover:text-white">ALL PRODUCTS</a></li>
+                <li><a href="/admin" className="text-gray-300 hover:text-white">ADMIN</a></li>
               </ul>
             </div>
             
