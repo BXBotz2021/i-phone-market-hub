@@ -32,20 +32,20 @@ export default function Header({ onSearch }: HeaderProps) {
             </SheetTrigger>
             <SheetContent side="left" className="w-[240px] sm:w-[300px]">
               <nav className="flex flex-col gap-4 py-6">
-                <Link to="/" className="text-lg font-medium">Home</Link>
-                <Link to="/#featured" className="text-lg font-medium">Featured</Link>
-                <Link to="/#all-products" className="text-lg font-medium">All Products</Link>
-                <Link to="/admin" className="text-lg font-medium text-muted-foreground">Admin Login</Link>
+                <Link to="/" className="text-lg font-medium">HOME</Link>
+                <Link to="/#featured" className="text-lg font-medium">FEATURED</Link>
+                <Link to="/#all-products" className="text-lg font-medium">ALL PRODUCTS</Link>
+                <Link to="/admin" className="text-lg font-medium text-muted-foreground">ADMIN LOGIN</Link>
               </nav>
             </SheetContent>
           </Sheet>
           <Link to="/" className="flex items-center">
-          <img src="/logo.png" alt="iPhone Resale Logo" className="h-10" />
+          <img src="/logo.png" alt="STORE LOGO" className="h-10" />
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link to="/" className="font-medium transition-colors hover:text-foreground/80">Home</Link>
-            <Link to="/#featured" className="font-medium transition-colors hover:text-foreground/80">Featured</Link>
-            <Link to="/#all-products" className="font-medium transition-colors hover:text-foreground/80">All Products</Link>
+            <Link to="/" className="font-medium transition-colors hover:text-foreground/80">HOME</Link>
+            <Link to="/#featured" className="font-medium transition-colors hover:text-foreground/80">FEATURED</Link>
+            <Link to="/#all-products" className="font-medium transition-colors hover:text-foreground/80">ALL PRODUCTS</Link>
           </nav>
         </div>
         
