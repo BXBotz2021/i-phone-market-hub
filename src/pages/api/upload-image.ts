@@ -1,5 +1,4 @@
-// pages/api/upload-image.ts
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import formidable from 'formidable';
 import fs from 'fs';
 import path from 'path';
@@ -47,12 +46,12 @@ export default async function handler(
         return res.status(400).json({ message: 'No image provided' });
       }
 
-      // Return the public URL of the uploaded file
+      // Return public URL (Netlify-friendly path)
       const publicUrl = `/uploads/${path.basename(file.filepath)}`;
-      return res.status(200).json({ url: publicUrl });
+      res.status(200).json({ url: publicUrl });
     });
   } catch (error) {
     console.error('Server error:', error);
-    return res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ message: 'Internal server error' });
   }
 }
