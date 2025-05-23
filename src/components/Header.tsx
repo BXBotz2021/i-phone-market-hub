@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
+import { UserCog } from "lucide-react";
 
 interface HeaderProps {
   onSearch?: (query: string) => void;
@@ -65,7 +66,10 @@ export default function Header({ onSearch }: HeaderProps) {
               />
             </div>
           </form>
-          <Link to="/admin" className="hidden md:block text-sm text-muted-foreground hover:text-primary">Admin</Link>
+          <Link to="/admin" className="hidden md:block text-muted-foreground hover:text-primary" title="Admin Panel">
+            <UserCog className="h-6 w-6" />
+          </Link>
+
         </div>
       </div>
     </header>
