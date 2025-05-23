@@ -21,7 +21,7 @@ export default function Header({ onSearch }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-background backdrop-blur border-b">
-      <div className="container flex h-16 items-center justify-between py-4">
+      <div className="container flex h-24 items-center justify-between py-6">
         <div className="flex items-center gap-2 md:gap-4">
           <Sheet>
             <SheetTrigger asChild>
