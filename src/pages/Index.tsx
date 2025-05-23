@@ -76,7 +76,7 @@ export default function Index() {
       <main className="flex-1">
         {/* Hero Section */}
         <section
-  className="relative bg-iphone-light py-16 md:py-24"
+  className="relative h-[90vh] md:h-screen flex items-center justify-center"
   style={{
     backgroundImage: "url('/hero-bg.jpg')",
     backgroundSize: "cover",
@@ -84,6 +84,7 @@ export default function Index() {
     backgroundRepeat: "no-repeat",
   }}
 >
+
   {/* Overlay */}
   <div className="absolute inset-0 bg-black/50"></div>
 
