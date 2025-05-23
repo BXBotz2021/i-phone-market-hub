@@ -41,7 +41,7 @@ export default function Header({ onSearch }: HeaderProps) {
           </Sheet>
           <Link to="/" className="flex items-center gap-2">
             <img src="/logo.png" alt="STORE LOGO" className="h-20" />
-            <span className="text-2xl font-semibold text-foreground">FOR-U</span>
+            <span className="text-2xl font-bold text-blue-600">FOR-U</span>
           </Link>
 
 
