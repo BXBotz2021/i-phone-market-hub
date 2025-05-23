@@ -53,7 +53,14 @@ export default function ProductForm({ product, onSubmit, onCancel }: ProductForm
       INITIAL_PRODUCT
   );
   
-  const [imageUrl, setImageUrl] = useState("");
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  if (e.target.files && e.target.files.length > 0) {
+    setImageFile(e.target.files[0]);
+  }
+};
+
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
