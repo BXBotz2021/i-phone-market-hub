@@ -40,7 +40,7 @@ export default function Header({ onSearch }: HeaderProps) {
             </SheetContent>
           </Sheet>
           <Link to="/" className="flex items-center">
-          <img src="/logo.png" alt="STORE LOGO" className="h-10" />
+          <img src="/logo.png" alt="STORE LOGO" className="h-16" />
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <Link to="/" className="font-medium transition-colors hover:text-foreground/80">HOME</Link>
