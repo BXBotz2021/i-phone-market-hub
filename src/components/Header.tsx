@@ -46,12 +46,11 @@ export default function Header({ onSearch }: HeaderProps) {
           </Link>
 
 
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link to="/" className="font-medium transition-colors hover:text-foreground/80">HOME</Link>  
-            <Link to="/#featured" className="font-medium transition-colors hover:text-foreground/80">FEATURED</Link>
-            <Link to="/#all-products" className="font-medium transition-colors hover:text-foreground/80">ALL PRODUCTS</Link>
+          <nav className="hidden md:flex items-center gap-2">
+            <Link to="/" className="px-4 py-2 rounded-md text-base font-semibold text-foreground hover:text-white hover:bg-blue-600 transition-colors">HOME</Link>
+            <Link to="/#all-products" className="px-4 py-2 rounded-md text-base font-semibold text-foreground hover:text-white hover:bg-blue-600 transition-colors">ALL PRODUCTS</Link>
+            <Link to="/about" className="px-4 py-2 rounded-md text-base font-semibold text-foreground hover:text-white hover:bg-blue-600 transition-colors">ABOUT US</Link>
           </nav>
-
         </div>
         
         <div className="flex items-center gap-2">
