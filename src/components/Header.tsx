@@ -39,9 +39,11 @@ export default function Header({ onSearch }: HeaderProps) {
               </nav>
             </SheetContent>
           </Sheet>
-          <Link to="/" className="flex items-center">
-          <img src="/logo.png" alt="STORE LOGO" className="h-16" />
+          <Link to="/" className="flex items-center space-x-2">
+            <img src="/logo.png" alt="STORE LOGO" className="h-16" />
+            <span className="text-xl font-bold tracking-tight">FOR-U</span>
           </Link>
+
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <Link to="/" className="font-medium transition-colors hover:text-foreground/80">HOME</Link>
             <Link to="/#featured" className="font-medium transition-colors hover:text-foreground/80">FEATURED</Link>
