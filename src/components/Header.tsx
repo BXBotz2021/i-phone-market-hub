@@ -21,7 +21,7 @@ export default function Header({ onSearch }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-background backdrop-blur border-b">
-      <div className="container flex h-20 items-center justify-between py-5">
+      <div className="container flex h-24 items-center justify-between py-6">
         <div className="flex items-center gap-2 md:gap-4">
           <Sheet>
             <SheetTrigger asChild>
@@ -40,7 +40,7 @@ export default function Header({ onSearch }: HeaderProps) {
             </SheetContent>
           </Sheet>
           <Link to="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="STORE LOGO" className="h-16" />
+            <img src="/logo.png" alt="STORE LOGO" className="h-20" />
             <span className="text-2xl font-semibold text-foreground">FOR-U</span>
           </Link>
 
