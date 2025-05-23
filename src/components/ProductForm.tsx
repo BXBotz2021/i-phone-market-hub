@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -51,15 +52,8 @@ export default function ProductForm({ product, onSubmit, onCancel }: ProductForm
       } : 
       INITIAL_PRODUCT
   );
-
-  const [imageFile, setImageFile] = useState<File | null>(null);
-  const [isUploading, setIsUploading] = useState(false);
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setImageFile(e.target.files[0]);
-    }
-  };
+  
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -83,6 +77,16 @@ export default function ProductForm({ product, onSubmit, onCancel }: ProductForm
     }));
   };
   
+  const handleAddImage = () => {
+    if (imageUrl && !formData.images.includes(imageUrl)) {
+      setFormData(prev => ({
+        ...prev,
+        images: [...prev.images, imageUrl]
+      }));
+      setImageUrl("");
+    }
+  };
+  
   const handleRemoveImage = (index: number) => {
     setFormData(prev => ({
       ...prev,
@@ -93,42 +97,6 @@ export default function ProductForm({ product, onSubmit, onCancel }: ProductForm
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit(formData);
-  };
-
-  const handleUpload = async () => {
-    if (!imageFile) {
-      alert("Please select an image file first!");
-      return;
-    }
-
-    setIsUploading(true);
-    
-    try {
-      const uploadFormData = new FormData();
-      uploadFormData.append("image", imageFile);
-
-      const res = await fetch("/api/upload-image", {
-        method: "POST",
-        body: uploadFormData,
-      });
-
-      if (!res.ok) throw new Error("Upload failed");
-
-      const data = await res.json();
-      const uploadedImageUrl = data.url;
-
-      setFormData(prev => ({
-        ...prev,
-        images: [...prev.images, uploadedImageUrl]
-      }));
-
-      setImageFile(null);
-    } catch (err) {
-      console.error("Upload error:", err);
-      alert("Image upload error: " + (err instanceof Error ? err.message : "Unknown error"));
-    } finally {
-      setIsUploading(false);
-    }
   };
   
   return (
@@ -266,32 +234,18 @@ export default function ProductForm({ product, onSubmit, onCancel }: ProductForm
                 </div>
               ))}
             </div>
-            <div className="flex gap-2 mt-2 items-center">
-              <input 
-                type="file" 
-                accept="image/*" 
-                onChange={handleFileChange} 
-                className="hidden" 
-                id="image-upload"
+            <div className="flex gap-2 mt-2">
+              <Input
+                placeholder="Enter image URL"
+                value={imageUrl}
+                onChange={(e) => setImageUrl(e.target.value)}
               />
-              <Label 
-                htmlFor="image-upload" 
-                className="px-4 py-2 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-md text-sm font-medium cursor-pointer"
-              >
-                Choose File
-              </Label>
-              {imageFile && (
-                <span className="text-sm text-muted-foreground">
-                  {imageFile.name}
-                </span>
-              )}
-              <Button
+              <Button 
                 type="button"
-                onClick={handleUpload}
+                onClick={handleAddImage}
                 variant="secondary"
-                disabled={!imageFile || isUploading}
               >
-                {isUploading ? "Uploading..." : "Upload"}
+                Add
               </Button>
             </div>
           </div>
