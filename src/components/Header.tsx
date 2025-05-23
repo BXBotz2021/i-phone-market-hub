@@ -46,9 +46,9 @@ export default function Header({ onSearch }: HeaderProps) {
 
 
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link to="/" className="font-medium transition-colors hover:text-foreground/80">HOME</Link>
-            <Link to="/#featured" className="font-medium transition-colors hover:text-foreground/80">FEATURED</Link>
-            <Link to="/#all-products" className="font-medium transition-colors hover:text-foreground/80">ALL PRODUCTS</Link>
+            <Link to="/" className="text-lg font-semibold px-2 py-1 hover:text-primary transition-colors">HOME</Link>
+            <Link to="/#featured" className="text-lg font-semibold px-2 py-1 hover:text-primary transition-colors">FEATURED</Link>
+            <Link to="/#all-products" className="text-lg font-semibold px-2 py-1 hover:text-primary transition-colors">ALL PRODUCTS</Link>
           </nav>
         </div>
         
