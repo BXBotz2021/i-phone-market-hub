@@ -84,15 +84,6 @@ export default function ProductForm({ product, onSubmit, onCancel }: ProductForm
     }));
   };
   
-  const handleAddImage = () => {
-    if (imageUrl && !formData.images.includes(imageUrl)) {
-      setFormData(prev => ({
-        ...prev,
-        images: [...prev.images, imageUrl]
-      }));
-      setImageUrl("");
-    }
-  };
   
   const handleRemoveImage = (index: number) => {
     setFormData(prev => ({
@@ -241,20 +232,55 @@ export default function ProductForm({ product, onSubmit, onCancel }: ProductForm
                 </div>
               ))}
             </div>
-            <div className="flex gap-2 mt-2">
-              <Input
-                placeholder="Enter image URL"
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
-              />
-              <Button 
-                type="button"
-                onClick={handleAddImage}
-                variant="secondary"
-              >
-                Add
-              </Button>
-            </div>
+            <div className="flex gap-2 mt-2 items-center">
+  <input 
+    type="file" 
+    accept="image/*" 
+    onChange={handleFileChange} 
+    className="file-input"
+  />
+  <Button
+    type="button"
+    onClick={async () => {
+      if (!imageFile) {
+        alert("Please select an image file first!");
+        return;
+      }
+
+      // Upload the file to your backend or image hosting API
+      const formData = new FormData();
+      formData.append("image", imageFile);
+
+      try {
+        const res = await fetch("/api/upload-image", { // update with your API endpoint
+          method: "POST",
+          body: formData,
+        });
+
+        if (!res.ok) throw new Error("Upload failed");
+
+        const data = await res.json();
+        const uploadedImageUrl = data.url; // adjust this based on API response
+
+        // Add uploaded image URL to formData images array
+        if (!formData.images.includes(uploadedImageUrl)) {
+          setFormData(prev => ({
+            ...prev,
+            images: [...prev.images, uploadedImageUrl]
+          }));
+        }
+
+        setImageFile(null);
+      } catch (err) {
+        alert("Image upload error: " + err.message);
+      }
+    }}
+    variant="secondary"
+  >
+    Upload
+  </Button>
+</div>
+
           </div>
           
           <div className="flex flex-col gap-4">
